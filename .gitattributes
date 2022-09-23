@@ -1,0 +1,5 @@
+SNP.INFO.bz2 filter=lfs diff=lfs merge=lfs -text
+ref_class.txt filter=lfs diff=lfs merge=lfs -text
+ImpRef.py filter=lfs diff=lfs merge=lfs -text
+chr1-18.pos_snp_sample.matrix.bz2 filter=lfs diff=lfs merge=lfs -text
+example filter=lfs diff=lfs merge=lfs -text
