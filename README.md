@@ -1,1 +1,2 @@
 # ImpRef
+ImpRef is an intelligent method for customizing reference panels for target samples prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
