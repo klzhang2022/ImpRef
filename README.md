@@ -104,6 +104,7 @@ probability matrix of target samples and 64 breeds/lines
 
 target sample prediction results: sample ID; breed/line most similar to each target sample sequence
 ```
+|  ----  |  ----  |
 |  sample_1  |  Danish_Yorkshire  |
 |  sample_2  |  Danish_Yorkshire  |
 |  sample_3  |  Danish_Yorkshire  |
@@ -111,9 +112,6 @@ target sample prediction results: sample ID; breed/line most similar to each tar
 |  sample_5  |  Danish_Yorkshire  |
 |  sample_6  |  American_Yorkshire  |
 |  sample_7  |  American_Yorkshire  |
-|  sample_8  |  Hybrid  |
-|  sample_9  |  Hybrid  |
-|  sample_10  |  Hybrid  |
 
 ```
 #ImpRef.out.ref.population
