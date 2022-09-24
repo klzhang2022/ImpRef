@@ -1,11 +1,12 @@
-# ImpRef
+# ImpRefIC
+## Pig Genotype `Imp`utation `Ref`erence Panel `I`ntelligent `C`ustomization
 
 ## Overview
-#### `ImpRef` is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
+#### `ImpRefIC` is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
 
 ## Installation
 ```
-git clone --recursive https://github.com/klzhang2022/ImpRef.git
+git clone --recursive https://github.com/klzhang2022/ImpRefIC.git
 ```
 ### ✳Requirements
 * #### python 3  (https://www.python.org)
@@ -30,15 +31,15 @@ import warnings
 
 ## Running
 ```
-cd ImpRef_path   #ImpRef installation directory
+cd ImpRefIC_path   #ImpRefIC installation directory
 
-python3 ImpRef.py /example/test.vcf.gz ./ /example
+python3 ImpRefIC.py /example/test.vcf.gz ./ /example
 ```
 ```
 
 /example/test.vcf.gz   #Compressed VCF file of the target sample
 
-./                     #ImpRef installation directory
+./                     #ImpRefIC installation directory
 
 /example               #Output path
 ```
@@ -73,18 +74,18 @@ python3 ImpRef.py /example/test.vcf.gz ./ /example
 ```
 
 ## Output
-* #### ImpRef.out.population.proba
+* #### ImpRefIC.out.population.proba
 
-* #### ImpRef.out.population
+* #### ImpRefIC.out.population
 
-* #### ImpRef.out.ref.population
+* #### ImpRefIC.out.ref.population
 
 * #### LogisticRegression.pkl
 
 * #### Output log
 
 ```
-#ImpRef.out.population.prob
+#ImpRefIC.out.population.prob
 
 probability matrix of target samples and 64 breeds/lines
 ```
@@ -102,7 +103,7 @@ probability matrix of target samples and 64 breeds/lines
 |  0.0209  |  0.0093  |  0.0347  |  0.0013  |  0.0028  |  0.0273  |  0.0732  |  0.0002  |  0.0021  |  0.0013  |  0.0012  |  0.0005  |  0.0017  |  0.0015  |  0.0026  |  0.0011  |  0.0023  |  0.0008  |  0.0011  |  0.0018  |  0.0010  |  0.0009  |  0.0006  |  0.0014  |  0.0019  |  0.0020  |  0.0031  |  0.0007  |  0.0014  |  0.0009  |  0.0016  |  0.0006  |  0.0003  |  0.0002  |  0.0017  |  0.0000  |  0.0011  |  0.0001  |  0.0007  |  0.0007  |  0.0002  |  0.0035  |  0.0001  |  0.0001  |  0.0007  |  0.0002  |  0.0247  |  0.0003  |  0.0003  |  0.0003  |  0.0021  |  0.0009  |  0.0018  |  0.0002  |  0.0004  |  0.0001  |  0.0002  |  0.0000  |  0.0002  |  0.0003  |  0.0006  |  0.0002  |  0.0004  |  0.7536  |
 
 ```
-#ImpRef.out.population
+#ImpRefIC.out.population
 
 target sample prediction results: sample ID; breed/line most similar to each target sample sequence
 ```
@@ -117,7 +118,7 @@ target sample prediction results: sample ID; breed/line most similar to each tar
 |  sample_7  |  American_Yorkshire  |
 
 ```
-#ImpRef.out.ref.population
+#ImpRefIC.out.ref.population
 
 customized reference panel for target samples
 ```
