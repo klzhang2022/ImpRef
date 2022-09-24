@@ -81,6 +81,8 @@ python3 ImpRef.py /example/test.vcf.gz ./ /example
 
 * #### LogisticRegression.pkl
 
+* #### Output log
+
 ```
 #ImpRef.out.population.prob
 
