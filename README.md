@@ -175,7 +175,7 @@ F1 = 1.0000
 #### If you have any questions and suggestions, please contact us!
 >> Yunlong Ma (Yunlong.Ma@mail.hzau.edu.cn)
 
->> Kaili Zhang (1153793935@qq.com)
+>> Kaili Zhang (kelly1153793935@163.com)
 
 ## Citation
 #### Please wait for the update
