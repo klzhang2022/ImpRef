@@ -1,13 +1,5 @@
 # ImpRef
 
-## Contents
-* ### Overview
-* ### Installation
-* ### Running
-* ### Input
-* ### Output
-* ### Citation
-
 ## Overview
 ImpRef is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
 
@@ -87,6 +79,8 @@ Compressed VCF file (https://samtools.github.io/hts-specs/VCFv4.2.pdf)
 
 * ImpRef.out.ref.population
 
+* LogisticRegression.pkl
+
 ```
 #ImpRef.out.population.prob
 
@@ -104,3 +98,34 @@ probability matrix of target samples and 64 breeds/lines
 |  0.0253  |  0.0036  |  0.0564  |  0.0032  |  0.0043  |  0.0644  |  0.1547  |  0.0002  |  0.0017  |  0.0010  |  0.0018  |  0.0010  |  0.0027  |  0.0022  |  0.0051  |  0.0016  |  0.0026  |  0.0012  |  0.0015  |  0.0026  |  0.0009  |  0.0009  |  0.0010  |  0.0018  |  0.0029  |  0.0027  |  0.0077  |  0.0009  |  0.0036  |  0.0010  |  0.0020  |  0.0010  |  0.0006  |  0.0003  |  0.0013  |  0.0000  |  0.0012  |  0.0001  |  0.0013  |  0.0007  |  0.0002  |  0.0037  |  0.0001  |  0.0000  |  0.0009  |  0.0002  |  0.0259  |  0.0002  |  0.0003  |  0.0003  |  0.0022  |  0.0015  |  0.0013  |  0.0003  |  0.0005  |  0.0001  |  0.0002  |  0.0001  |  0.0003  |  0.0001  |  0.0006  |  0.0002  |  0.0006  |  0.5914  |
 |  0.0134  |  0.0171  |  0.1671  |  0.0033  |  0.0057  |  0.0639  |  0.2500  |  0.0002  |  0.0019  |  0.0017  |  0.0012  |  0.0006  |  0.0016  |  0.0029  |  0.0054  |  0.0015  |  0.0012  |  0.0012  |  0.0016  |  0.0022  |  0.0013  |  0.0009  |  0.0013  |  0.0027  |  0.0023  |  0.0035  |  0.0030  |  0.0014  |  0.0031  |  0.0019  |  0.0022  |  0.0013  |  0.0012  |  0.0005  |  0.0042  |  0.0001  |  0.0018  |  0.0001  |  0.0011  |  0.0008  |  0.0005  |  0.0026  |  0.0001  |  0.0001  |  0.0013  |  0.0005  |  0.0641  |  0.0004  |  0.0004  |  0.0004  |  0.0038  |  0.0017  |  0.0022  |  0.0006  |  0.0005  |  0.0002  |  0.0004  |  0.0001  |  0.0009  |  0.0005  |  0.0012  |  0.0003  |  0.0003  |  0.3389  |
 |  0.0209  |  0.0093  |  0.0347  |  0.0013  |  0.0028  |  0.0273  |  0.0732  |  0.0002  |  0.0021  |  0.0013  |  0.0012  |  0.0005  |  0.0017  |  0.0015  |  0.0026  |  0.0011  |  0.0023  |  0.0008  |  0.0011  |  0.0018  |  0.0010  |  0.0009  |  0.0006  |  0.0014  |  0.0019  |  0.0020  |  0.0031  |  0.0007  |  0.0014  |  0.0009  |  0.0016  |  0.0006  |  0.0003  |  0.0002  |  0.0017  |  0.0000  |  0.0011  |  0.0001  |  0.0007  |  0.0007  |  0.0002  |  0.0035  |  0.0001  |  0.0001  |  0.0007  |  0.0002  |  0.0247  |  0.0003  |  0.0003  |  0.0003  |  0.0021  |  0.0009  |  0.0018  |  0.0002  |  0.0004  |  0.0001  |  0.0002  |  0.0000  |  0.0002  |  0.0003  |  0.0006  |  0.0002  |  0.0004  |  0.7536  |
+
+```
+#ImpRef.out.population
+
+target sample prediction results: sample ID; breed/line most similar to each target sample sequence
+```
+|  sample_1  |  Danish_Yorkshire  |
+|  sample_2  |  Danish_Yorkshire  |
+|  sample_3  |  Danish_Yorkshire  |
+|  sample_4  |  Danish_Yorkshire  |
+|  sample_5  |  Danish_Yorkshire  |
+|  sample_6  |  American_Yorkshire  |
+|  sample_7  |  American_Yorkshire  |
+|  sample_8  |  Hybrid  |
+|  sample_9  |  Hybrid  |
+|  sample_10  |  Hybrid  |
+
+```
+#ImpRef.out.ref.population
+
+customized reference panels for target samples
+```
+|  Danish_Yorkshire  |
+|  American_Yorkshire  |
+|  Hybrid  |
+
+```
+#LogisticRegression.pkl
+
+the trained classification model
+```
