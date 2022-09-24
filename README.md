@@ -1,15 +1,15 @@
 # ImpRef
 
 ## Overview
-ImpRef is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
+#### `ImpRef` is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
 
 ## Installation
 ```
 git clone --recursive https://github.com/klzhang2022/ImpRef.git
 ```
 ### ✳Requirements
-* python 3  (https://www.python.org)
-* python modules and packages
+* #### python 3  (https://www.python.org)
+* #### python modules and packages
 ```
 import re
 import sys
@@ -44,7 +44,7 @@ python3 ImpRef.py /example/test.vcf.gz ./ /example
 ```
 
 ## Input
-Compressed VCF file (https://samtools.github.io/hts-specs/VCFv4.2.pdf)
+#### Compressed VCF file (https://samtools.github.io/hts-specs/VCFv4.2.pdf)
 ```
 ##fileformat=VCFv4.2
 ##fileDate=20090805
@@ -73,13 +73,13 @@ Compressed VCF file (https://samtools.github.io/hts-specs/VCFv4.2.pdf)
 ```
 
 ## Output
-* ImpRef.out.population.proba
+* #### ImpRef.out.population.proba
 
-* ImpRef.out.population
+* #### ImpRef.out.population
 
-* ImpRef.out.ref.population
+* #### ImpRef.out.ref.population
 
-* LogisticRegression.pkl
+* #### LogisticRegression.pkl
 
 ```
 #ImpRef.out.population.prob
@@ -104,6 +104,7 @@ probability matrix of target samples and 64 breeds/lines
 
 target sample prediction results: sample ID; breed/line most similar to each target sample sequence
 ```
+|  `sample ID` |  `breed/line`  |
 |  ----  |  ----  |
 |  sample_1  |  Danish_Yorkshire  |
 |  sample_2  |  Danish_Yorkshire  |
@@ -116,8 +117,10 @@ target sample prediction results: sample ID; breed/line most similar to each tar
 ```
 #ImpRef.out.ref.population
 
-customized reference panels for target samples
+customized reference panel for target samples
 ```
+|  `customized reference panel` |
+|  ----  |
 |  Danish_Yorkshire  |
 |  American_Yorkshire  |
 |  Hybrid  |
@@ -126,4 +129,41 @@ customized reference panels for target samples
 #LogisticRegression.pkl
 
 the trained classification model
+```
+
+```
+#Output log
+
+[INFO] Study samples: 10
+[INFO] Study snps: 44244
+[INFO] Consistent snps: 10741
+
+[INFO] Successfully initialize a new model !
+[INFO] Training the model …… 
+[INFO] Model training completed !
+
+===================Confusion Matrix===================
+Predicted  0   1   2   3   4   5   6   7   ...  56  57  58  59  60  61  62  63
+Actual                                     ...                                
+0          25   0   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+1           0  37   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+2           0   0  29   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+3           0   0   0  36   0   0   0   0  ...   0   0   0   0   0   0   0   0
+4           0   0   0   0  31   0   0   0  ...   0   0   0   0   0   0   0   0
+...        ..  ..  ..  ..  ..  ..  ..  ..  ...  ..  ..  ..  ..  ..  ..  ..  ..
+59          0   0   0   0   0   0   0   0  ...   0   0   0  23   0   0   0   0
+60          0   0   0   0   0   0   0   0  ...   0   0   0   0  24   0   0   0
+61          0   0   0   0   0   0   0   0  ...   0   0   0   0   0  32   0   0
+62          0   0   0   0   0   0   0   0  ...   0   0   0   0   0   0  26   0
+63          0   0   0   0   0   0   0   0  ...   0   0   0   0   0   0   0  33
+
+[64 rows x 64 columns]
+Accuracy = 1.0000 
+Precision = 1.0000 
+Recall = 1.0000 
+F1 = 1.0000
+[INFO] Model has been saved to /example/LogisticRegression.pkl
+[INFO] The model starts predicting the target file …… 
+[INFO] Prediction complete ! The predicted frequencies and customized reference population have been saved to /example
+[INFO] Total time consumption is  00:24:36
 ```
