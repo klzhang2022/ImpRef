@@ -169,3 +169,11 @@ F1 = 1.0000
 [INFO] Prediction complete ! The predicted frequencies and customized reference population have been saved to /example
 [INFO] Total time consumption is  00:24:36
 ```
+
+## Maintainers
+#### If you have any questions and suggestions, please contact us!
+>> Yunlong Ma (Yunlong.Ma@mail.hzau.edu.cn)
+>> Kaili Zhang (1153793935@qq.com)
+
+## Citation
+#### Please wait for the update
