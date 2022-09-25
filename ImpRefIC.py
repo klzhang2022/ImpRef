@@ -1,5 +1,3 @@
-#!/usr/bin/python
-#coding:utf-8
 import re
 import sys
 import numpy as np
@@ -20,13 +18,13 @@ warnings.filterwarnings("ignore")
 start_time = time.time()
 
 input_file = sys.argv[1] #target VCF file
-ImpRef_path = sys.argv[2] #software path
+ImpRefIC_path = sys.argv[2] #software path
 out_path = sys.argv[3] #output file path
 
 #Corresponding markers in the reference and target files must have identical CHROM, POS, REF, and ALT fields
 all_SNP = {}
 consistent_SNP = defaultdict(list)
-with bz2.open(ImpRef_path + "/SNP.INFO.bz2",'rt') as file1:
+with bz2.open(ImpRefIC_path + "/SNP.INFO.bz2",'rt') as file1:
     for line in file1:
         line_list = line.strip().split()
         all_SNP.update({line_list[0]+','+line_list[1]+','+line_list[2]+','+line_list[3]:line})
@@ -74,7 +72,7 @@ study_G = study_G.T
 
 #Reference file as model training set
 ref_geno={}
-with open(ImpRef_path + "/chr1-18.pos_snp_sample.matrix",'rt') as file4:
+with bz2.open(ImpRefIC_path + "/chr1-18.pos_snp_sample.matrix.bz2",'rt') as file4:
     for line in file4:
         line_list = line.strip().split()
         lines = (',').join(line_list[:4])
@@ -86,7 +84,7 @@ x = ref_G.T
 
 #Label
 ref_class = []
-F = open(ImpRef_path + "/ref_class.txt",'rt')
+F = open(ImpRefIC_path + "/ref_class.txt",'rt')
 for line in F:
     line=line.strip('\n')
     ref_class.append(int(line))
@@ -135,14 +133,14 @@ print("[INFO] The model starts predicting the target file …… ")
 w_proba = model.predict_proba(study_G)
 w = model.predict(study_G)
 
-#Output predicted probabilities and optimal reference population
-population = np.array([["American_Yorkshire"],["Canadian_Yorkshire"],["Danish_Yorkshire"],["Dutch_Yorkshire"],["French_Yorkshire"],["Unknown_Yorkshire_lines"],["Landrace"],["Duroc"],["Berkshire"],["Goettingen_Minipig"],["Hampshire"],["Iberian"],["Mangalica"],["Pietrain"],["Angler_Sattleschwein"],["British_Saddleback"],["Bunte_Bentheimer"],["Calabrese"],["Casertana"],["Chato_Murciano"],["Cinta_Senese"],["Gloucester_Old_Spot"],["Large_Black"],["Leicoma"],["Linderodsvin"],["Middle_White"],["Nero_Siciliano"],["Tamworth"],["European_Wild_boar"],["Yucatan_minipig"],["Creole"],["American_Wild_boar"],["Bamei"],["Baoshan"],["Enshi_black"],["Erhualian"],["Hetao"],["Jinhua"],["Korean_black_pig"],["Laiwu"],["Meishan"],["Min"],["Neijiang"],["Rongchang"],["Tibetan"],["Tongcheng"],["Hubei_White"],["Daweizi"],["Jiangquhai"],["Leping_Spotted"],["Penzhou"],["songliao_black_pig"],["Taihu"],["Wannan_Spotted"],["Wujin"],["Ya_nan"],["Diannanxiaoer"],["Luchuan"],["Wuzhishan"],["Bamaxiang"],["MiniLEWE"],["Xiang"],["Asia_Wild_boar"],["Hybrid"]])
-study_sample = np.array(study_sample).reshape(len(study_sample),1)
+#Output predicted probabilities and customized reference panel
+population = np.varay([["American_Yorkshire"],["Canadian_Yorkshire"],["Danish_Yorkshire"],["Dutch_Yorkshire"],["French_Yorkshire"],["Unknown_Yorkshire_lines"],["Landrace"],["Duroc"],["Berkshire"],["Goettingen_Minipig"],["Hampshire"],["Iberian"],["Mangalica"],["Pietrain"],["Angler_Sattleschwein"],["British_Saddleback"],["Bunte_Bentheimer"],["Calabrese"],["Casertana"],["Chato_Murciano"],["Cinta_Senese"],["Gloucester_Old_Spot"],["Large_Black"],["Leicoma"],["Linderodsvin"],["Middle_White"],["Nero_Siciliano"],["Tamworth"],["European_Wild_boar"],["Yucatan_minipig"],["Creole"],["American_Wild_boar"],["Bamei"],["Baoshan"],["Enshi_black"],["Erhualian"],["Hetao"],["Jinhua"],["Korean_black_pig"],["Laiwu"],["Meishan"],["Min"],["Neijiang"],["Rongchang"],["Tibetan"],["Tongcheng"],["Hubei_White"],["Daweizi"],["Jiangquhai"],["Leping_Spotted"],["Penzhou"],["songliao_black_pig"],["Taihu"],["Wannan_Spotted"],["Wujin"],["Ya_nan"],["Diannanxiaoer"],["Luchuan"],["Wuzhishan"],["Bamaxiang"],["MiniLEWE"],["Xiang"],["Asia_Wild_boar"],["Hybrid"]])
+study_sample = np.varay(study_sample).reshape(len(study_sample),1)
 out_population = np.append(study_sample, population[w], axis=1)
-np.savetxt(out_path + "/ImpRef.out.population", out_population, fmt='%s', delimiter='\t')
-np.savetxt(out_path + "/ImpRef.out.ref.population", np.unique(population[w]), fmt='%s', delimiter='\t')
-np.savetxt(out_path + "/ImpRef.out.population.proba", population[np.unique(y)].transpose(), fmt='%s', delimiter='\t')
-f = open(out_path + "/ImpRef.out.population.proba", "ab")
+np.savetxt(out_path + "/ImpRefIC.out.populations", out_population, fmt='%s', delimiter='\t')
+np.savetxt(out_path + "/ImpRefIC.out.ref.populations", np.unique(population[w]), fmt='%s', delimiter='\t')
+np.savetxt(out_path + "/ImpRefIC.out.population.proba", population[np.unique(y)].transpose(), fmt='%s', delimiter='\t')
+f = open(out_path + "/ImpRefIC.out.population.proba", "ab")
 np.savetxt(f, w_proba, fmt='%.4f', delimiter='\t')
 
 #Total running time
@@ -150,5 +148,5 @@ end_time = time.time()
 run_time = end_time - start_time
 run_time = strftime("%H:%M:%S", gmtime(run_time))
 
-print("[INFO] Prediction complete ! The predicted frequencies and predicted optimal reference population have been saved to " + out_path)
+print("[INFO] Prediction complete ! The predicted frequencies and customized reference population have been saved to " + out_path)
 print("[INFO] Total time consumption is ",run_time)
