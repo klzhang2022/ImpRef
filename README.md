@@ -6,7 +6,7 @@
 
 ## Installation
 ```
-git clone --recursive https://github.com/klzhang2022/ImpRefIC.git
+git lfs clone --recursive https://github.com/klzhang2022/ImpRefIC.git
 ```
 ### ✳Requirements
 * #### python 3  (https://www.python.org)
