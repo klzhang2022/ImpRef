@@ -33,15 +33,15 @@ import warnings
 ```
 cd ImpRefIC_path   #ImpRefIC installation directory
 
-python3 ImpRefIC.py /example/test.vcf.gz ./ /example
+python3 ImpRefIC.py ./example/test.vcf.gz ./ ./example
 ```
 ```
 
-/example/test.vcf.gz   #Compressed VCF file of the target sample
+./example/test.vcf.gz   #Compressed VCF file of the target sample
 
 ./                     #ImpRefIC installation directory
 
-/example               #Output path
+./example               #Output path
 ```
 
 ## Input
