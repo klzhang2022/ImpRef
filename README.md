@@ -5,6 +5,34 @@
 #### `ImpRefIC` is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
 
 ## Installation
+✳Requirements
+* #### git
+* #### git-lfs
+```
+#Download git
+cd /usr/local/src/
+wget https://www.kernel.org/pub/software/scm/git/git-2.38.0.tar.gz --no-check-certificate
+tar -zxvf git-2.38.0.tar.gz
+cd git-2.38.0
+./configure
+make
+make install
+echo "export PATH=$PATH:/usr/local/git/bin" >> ~/.bashrc
+source ~/.bashrc
+git --version
+```
+```
+#Download git-lfs
+cd /usr/local/src/
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.2.0/git-lfs-linux-amd64-v3.2.0.tar.gz
+tar -zxvf git-lfs-linux-amd64-v3.2.0.tar.gz
+cd git-lfs-3.2.0
+./install.sh
+```
+```
+#Configure the upload file limit of git to 50000MB
+git config --global http.postBuffer 52428800000
+```
 ```
 git lfs clone --recursive https://github.com/klzhang2022/ImpRefIC.git
 ```
