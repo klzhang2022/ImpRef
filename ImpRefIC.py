@@ -75,7 +75,7 @@ study_G = study_G.T
 
 #Reference file as model training set
 ref_geno={}
-with bz2.open(ImpRefIC_path + "/End_chr1-18.pos_snp_sample.matrix.bz2",'rt') as file4:
+with bz2.open(ImpRefIC_path + "/chr1-18.pos_snp_sample.matrix.bz2",'rt') as file4:
     for line in file4:
         line_list = line.strip().split()
         lines = (',').join(line_list[:4])
@@ -136,7 +136,8 @@ print("[INFO] The model starts predicting the target file …… ")
 w_proba = model.predict_proba(study_G)
 w = model.predict(study_G)
 
-#Output predicted probabilities and optimal reference population
+#Output predicted probabilities and customized reference panel
+#Breeds and lines included in the reference panel
 ref_pop = []
 f = open(ImpRefIC_path + "/ref_pop.txt",'rt')
 for line in f:
@@ -159,4 +160,3 @@ run_time = strftime("%H:%M:%S", gmtime(run_time))
 
 print("[INFO] Prediction complete ! The predicted frequencies and predicted optimal reference population have been saved to " + out_path)
 print("[INFO] Total time consumption is ",run_time)
-
