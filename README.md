@@ -5,9 +5,31 @@
 #### `ImpRefIC` is an intelligent method for customizing reference panels prior to genotype imputation. Based on the logistic regression algorithm, the method is trained to classify the SNP data of 64 breeds/lines of pigs around the world, and combine the breeds/lines most similar to the target sample sequence as a customized reference panel, achieving higher imputation accuracy, especially for low frequency and rare variants.
 
 ## Installation
-✳Requirements
+```
+git lfs clone --recursive https://github.com/klzhang2022/ImpRefIC.git
+```
+### ✳Requirements
+* #### python 3  (https://www.python.org)
+* #### python modules and packages
 * #### git
 * #### git-lfs
+```
+import re
+import sys
+import numpy as np
+import pandas as pd
+import bz2
+import gzip
+import time
+from time import strftime, gmtime
+from collections import defaultdict
+import joblib
+import metrics
+from sklearn.metrics import *
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+import warnings
+```
 ```
 #Download git
 cd /usr/local/src/
@@ -32,29 +54,6 @@ cd git-lfs-3.2.0
 ```
 #Configure the upload file limit of git to 50000MB
 git config --global http.postBuffer 52428800000
-```
-```
-git lfs clone --recursive https://github.com/klzhang2022/ImpRefIC.git
-```
-### ✳Requirements
-* #### python 3  (https://www.python.org)
-* #### python modules and packages
-```
-import re
-import sys
-import numpy as np
-import pandas as pd
-import bz2
-import gzip
-import time
-from time import strftime, gmtime
-from collections import defaultdict
-import joblib
-import metrics
-from sklearn.metrics import *
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
-import warnings
 ```
 
 ## Running
