@@ -200,5 +200,4 @@ run_time = strftime("%H:%M:%S", gmtime(run_time))
 
 print("[INFO] Prediction complete! The predicted frequencies and predicted optimal reference population have been saved to " + out_path)
 print("[INFO] Total time consumption is ",run_time)
-print("\n")
 print(chr(10059) + "Note: few consistent SNPs or insufficient chromosomal diversity will result in inaccurate predictions" + chr(10059))
