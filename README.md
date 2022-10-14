@@ -168,8 +168,10 @@ the trained classification model
 #Output log
 
 [INFO] Study samples: 10
+[INFO] The chromosomes contained in the target VCF file: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 [INFO] Study snps: 44244
 [INFO] Consistent snps: 10741
+[INFO] SNPs for classification and prediction: 10741
 
 [INFO] Successfully initialize a new model !
 [INFO] Training the model …… 
@@ -178,27 +180,30 @@ the trained classification model
 ===================Confusion Matrix===================
 Predicted  0   1   2   3   4   5   6   7   ...  56  57  58  59  60  61  62  63
 Actual                                     ...                                
-0          25   0   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
-1           0  37   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
-2           0   0  29   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
-3           0   0   0  36   0   0   0   0  ...   0   0   0   0   0   0   0   0
-4           0   0   0   0  31   0   0   0  ...   0   0   0   0   0   0   0   0
+0          34   0   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+1           0  34   0   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+2           0   0  33   0   0   0   0   0  ...   0   0   0   0   0   0   0   0
+3           0   0   0  27   0   0   0   0  ...   0   0   0   0   0   0   0   0
+4           0   0   0   0  30   0   0   0  ...   0   0   0   0   0   0   0   0
 ...        ..  ..  ..  ..  ..  ..  ..  ..  ...  ..  ..  ..  ..  ..  ..  ..  ..
-59          0   0   0   0   0   0   0   0  ...   0   0   0  23   0   0   0   0
-60          0   0   0   0   0   0   0   0  ...   0   0   0   0  24   0   0   0
-61          0   0   0   0   0   0   0   0  ...   0   0   0   0   0  32   0   0
-62          0   0   0   0   0   0   0   0  ...   0   0   0   0   0   0  26   0
-63          0   0   0   0   0   0   0   0  ...   0   0   0   0   0   0   0  33
+59          0   0   0   0   0   0   0   0  ...   0   0   0  33   0   0   0   0
+60          0   0   0   0   0   0   0   0  ...   0   0   0   0  31   0   0   0
+61          0   0   0   0   0   0   0   0  ...   0   0   0   0   0  29   0   0
+62          0   0   0   0   0   0   0   0  ...   0   0   0   0   0   0  35   0
+63          0   0   0   0   0   0   1   0  ...   0   0   0   0   0   0   0  34
 
 [64 rows x 64 columns]
-Accuracy = 1.0000 
-Precision = 1.0000 
-Recall = 1.0000 
-F1 = 1.0000
-[INFO] Model has been saved to /example/LogisticRegression.pkl
+Accuracy = 0.9995
+Precision = 0.9995
+Recall = 0.9995
+F1 = 0.9995
+[INFO] Model has been saved to/public/zhangkl/PhD_project/intelligent_reference_panel_reconstruction/test_2022_10_14/LogisticRegression.pkl
 [INFO] The model starts predicting the target file …… 
-[INFO] Prediction complete ! The predicted frequencies and customized reference population have been saved to /example
-[INFO] Total time consumption is  00:24:36
+[INFO] Prediction complete ! The predicted frequencies and predicted optimal reference population have been saved to 
+/public/zhangkl/PhD_project/intelligent_reference_panel_reconstruction/test_2022_10_14
+[INFO] Total time consumption is  00:36:27
+
+❋Note: few consistent SNPs or insufficient chromosomal diversity will result in inaccurate predictions❋
 ```
 
 ## Maintainers
