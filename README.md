@@ -67,7 +67,7 @@ python3 ImpRefIC.py ./example/test.vcf.gz ./ ./example
 
 ./example/test.vcf.gz   #Compressed VCF file of the target sample
 
-./                     #ImpRefIC installation directory
+./                      #ImpRefIC installation directory
 
 ./example               #Output path
 ```
