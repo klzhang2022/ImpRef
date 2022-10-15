@@ -124,13 +124,13 @@ ref_G = np.concatenate([[ref_geno[i]] for i in consistent_SNP],axis=0)
 x = ref_G.T
 
 #Label
-ref_class = []
-F = open(ImpRefIC_path + "/ref_class.txt",'rt')
+ref_label = []
+F = open(ImpRefIC_path + "/ref_label.txt",'rt')
 for line in F:
     line=line.strip('\n')
-    ref_class.append(int(line))
+    ref_label.append(int(line))
 
-y = np.array(ref_class)
+y = np.array(ref_label)
 
 #Upsampling
 from imblearn.over_sampling import RandomOverSampler
