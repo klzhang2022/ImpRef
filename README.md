@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 import bz2
 import gzip
+import random
 import time
 from time import strftime, gmtime
 from collections import defaultdict
