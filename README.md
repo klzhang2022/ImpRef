@@ -198,7 +198,7 @@ Accuracy = 0.9995
 Precision = 0.9995
 Recall = 0.9995
 F1 = 0.9995
-[INFO] Model has been saved to/public/zhangkl/PhD_project/intelligent_reference_panel_reconstruction/test_2022_10_14/LogisticRegression.pkl
+[INFO] Model has been saved to /public/zhangkl/PhD_project/intelligent_reference_panel_reconstruction/test_2022_10_14/LogisticRegression.pkl
 [INFO] The model starts predicting the target file …… 
 [INFO] Prediction complete ! The predicted frequencies and predicted optimal reference population have been saved to /public/zhangkl/PhD_project/intelligent_reference_panel_reconstruction/test_2022_10_14
 [INFO] Total time consumption is  00:36:27
